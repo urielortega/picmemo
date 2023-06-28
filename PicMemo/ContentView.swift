@@ -20,10 +20,14 @@ struct ContentView: View {
                         HStack {
                             Image(uiImage: memo.image)
                                 .resizable()
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
                                 .scaledToFit()
-                                .frame(width: 100, height: 44)
+                                .frame(width: 100, height: 60)
                             Text(memo.description)
+                                .padding(.leading)
                         }
+                        .accessibilityElement()
+                        .accessibilityLabel(memo.description)
                     }
                 }
             }
