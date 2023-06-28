@@ -10,6 +10,9 @@ import SwiftUI
 struct ContentView: View {
     @State private var memos = [Memo]()
     
+    @State private var showingImagePicker = false
+    @State private var inputImage: UIImage?
+    
     var body: some View {
         NavigationStack {
             List {
@@ -33,18 +36,31 @@ struct ContentView: View {
             }
             .navigationTitle("PicMemo")
             .toolbar {
-                Button { // TODO: Show ImagePicker.
-                    // Temporarily adding Memo examples for testing.
-                    memos.append(
-                        Memo(
-                            id: UUID(),
-                            image: UIImage(imageLiteralResourceName: "hello"),
-                            description: "This is an example memo."
+                ToolbarItem(placement: .navigationBarLeading) { // Button for testing purposes.
+                    Button {
+                        memos.append(
+                            Memo(
+                                id: UUID(),
+                                image: UIImage(imageLiteralResourceName: "hello"),
+                                description: "This is an example memo."
+                            )
                         )
-                    )
-                } label: {
-                    Image(systemName: "camera")
+                    } label: {
+                        Image(systemName: "plus")
+                            .tint(.purple)
+                    }
                 }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        showingImagePicker = true
+                    } label: {
+                        Image(systemName: "camera")
+                    }
+                }
+            }
+            .sheet(isPresented: $showingImagePicker) {
+                ImagePicker(image: $inputImage)
             }
         }
     }
