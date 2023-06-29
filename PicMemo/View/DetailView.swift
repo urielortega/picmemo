@@ -12,7 +12,7 @@ struct DetailView: View {
     
     var body: some View {
         VStack {
-            Image(uiImage: memo.image)
+            Image(uiImage: memo.uiImage)
                 .resizable()
                 .clipShape(RoundedRectangle(cornerRadius: 8))
                 .scaledToFit()

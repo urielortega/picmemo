@@ -8,20 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var memos = [Memo]()
-    
-    @State private var showingImagePicker = false
-    @State private var inputImage: UIImage?
+    @StateObject private var viewModel = ViewModel()
+
+    @State private var showingAddMemoView = false
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(memos) { memo in
+                ForEach(viewModel.memos) { memo in
                     NavigationLink {
                         DetailView(memo: memo)
                     } label: {
                         HStack {
-                            Image(uiImage: memo.image)
+                            Image(uiImage: memo.uiImage)
                                 .resizable()
                                 .clipShape(RoundedRectangle(cornerRadius: 8))
                                 .scaledToFit()
@@ -36,12 +35,12 @@ struct ContentView: View {
             }
             .navigationTitle("PicMemo")
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) { // Button for testing purposes.
+                ToolbarItem(placement: .navigationBarLeading) { // Button just for testing purposes. 🔨
                     Button {
-                        memos.append(
+                        viewModel.memos.append(
                             Memo(
                                 id: UUID(),
-                                image: UIImage(imageLiteralResourceName: "hello"),
+                                imageData: UIImage(named: "hello")!.pngData()!,
                                 description: "This is an example memo."
                             )
                         )
@@ -53,14 +52,14 @@ struct ContentView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        showingImagePicker = true
+                        showingAddMemoView = true
                     } label: {
-                        Image(systemName: "camera")
+                        Image(systemName: "plus")
                     }
                 }
             }
-            .sheet(isPresented: $showingImagePicker) {
-                ImagePicker(image: $inputImage)
+            .sheet(isPresented: $showingAddMemoView) {
+                AddMemoView()
             }
         }
     }
