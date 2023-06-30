@@ -22,7 +22,7 @@ struct DetailView: View {
                 .accessibilityHint("The following is a possible description of the image:")
             
             Text(memo.description)
-                .font(.title2.bold())
+                .font(.title2)
                 .padding(.top)
             
             Spacer()

@@ -33,13 +33,20 @@ struct ContentView: View {
                         .accessibilityLabel(memo.description)
                     }
                 }
+                .onDelete(perform: removeRows)
             }
             .navigationTitle("PicMemo")
             .toolbar {
-                Button {
-                    showingAddMemoView = true
-                } label: {
-                    Image(systemName: "plus")
+                ToolbarItem(placement: .navigationBarLeading) {
+                    EditButton()
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        showingAddMemoView = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
                 }
             }
             .sheet(isPresented: $showingAddMemoView) {
@@ -48,6 +55,11 @@ struct ContentView: View {
                 }
             }
         }
+    }
+    
+    func removeRows(at offsets: IndexSet) {
+        viewModel.memos.remove(atOffsets: offsets)
+        viewModel.save()
     }
 }
 
