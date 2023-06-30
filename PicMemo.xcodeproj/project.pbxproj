@@ -106,8 +106,8 @@
 			children = (
 				A4A98C232A4CB2AA00FD8F33 /* ContentView.swift */,
 				A4E09C4B2A4CCCCC00F58554 /* DetailView.swift */,
-				A4E09C4D2A4CD78F00F58554 /* ImagePicker.swift */,
 				A4E09C542A4CE83C00F58554 /* AddMemoView.swift */,
+				A4E09C4D2A4CD78F00F58554 /* ImagePicker.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

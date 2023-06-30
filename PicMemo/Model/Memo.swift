@@ -8,20 +8,24 @@
 import Foundation
 import SwiftUI
 
-struct Memo: Identifiable, Codable {
+struct Memo: Identifiable, Codable, Comparable {
     var id: UUID
     
-    var imageData: Data
+    var imageData: Data?
     
-    var uiImage: UIImage {
-        UIImage(data: self.imageData)!
+    var uiImage: UIImage? {
+        UIImage(data: (self.imageData ?? UIImage(named: "placeholder")!.pngData())!)
     }
     
     var description: String
     
     static var example = Memo(
         id: UUID(),
-        imageData: UIImage(named: "hello")!.pngData()!,
+        imageData: UIImage(named: "placeholder")!.pngData(),
         description: "This is an example memo."
     )
+    
+    static func < (lhs: Memo, rhs: Memo) -> Bool {
+        lhs.description < rhs.description
+    }
 }

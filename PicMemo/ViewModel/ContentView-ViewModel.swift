@@ -17,9 +17,23 @@ extension ContentView {
         init() { // For loading data.
             do {
                 let data = try Data(contentsOf: savePath)
-                memos = try JSONDecoder().decode([Memo].self, from: data)
+                memos = try JSONDecoder().decode([Memo].self, from: data).sorted() // memos alphabetically sorted.
             } catch {
                 memos = []
+            }
+        }
+        
+        func updateMemos(with memo: Memo) { // Activated when Save button is pressed.
+            memos.append(memo)
+            save()
+        }
+        
+        func save() {
+            do {
+                let data = try JSONEncoder().encode(memos)
+                try data.write(to: savePath, options: [.atomic, .completeFileProtection])
+            } catch {
+                print("Unable to save data.")
             }
         }
     }

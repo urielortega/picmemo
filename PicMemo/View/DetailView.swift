@@ -12,17 +12,19 @@ struct DetailView: View {
     
     var body: some View {
         VStack {
-            Image(uiImage: memo.uiImage)
+            Image(uiImage: memo.uiImage ?? Memo.example.uiImage!)
                 .resizable()
                 .clipShape(RoundedRectangle(cornerRadius: 8))
                 .scaledToFit()
                 .shadow(color: Color(.sRGBLinear, white: 0, opacity: 0.30), radius: 25)
+                // Accessibility modifiers:
                 .accessibilityLabel("Image of memo: \(memo.description)")
                 .accessibilityHint("The following is a possible description of the image:")
             
             Text(memo.description)
                 .font(.title2.bold())
                 .padding(.top)
+            
             Spacer()
         }
         .padding()

@@ -15,12 +15,12 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(viewModel.memos) { memo in
+                ForEach(viewModel.memos.sorted()) { memo in
                     NavigationLink {
                         DetailView(memo: memo)
                     } label: {
                         HStack {
-                            Image(uiImage: memo.uiImage)
+                            Image(uiImage: memo.uiImage!)
                                 .resizable()
                                 .clipShape(RoundedRectangle(cornerRadius: 8))
                                 .scaledToFit()
@@ -28,6 +28,7 @@ struct ContentView: View {
                             Text(memo.description)
                                 .padding(.leading)
                         }
+                        // Accessibility modifiers:
                         .accessibilityElement()
                         .accessibilityLabel(memo.description)
                     }
@@ -35,31 +36,16 @@ struct ContentView: View {
             }
             .navigationTitle("PicMemo")
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) { // Button just for testing purposes. 🔨
-                    Button {
-                        viewModel.memos.append(
-                            Memo(
-                                id: UUID(),
-                                imageData: UIImage(named: "hello")!.pngData()!,
-                                description: "This is an example memo."
-                            )
-                        )
-                    } label: {
-                        Image(systemName: "plus")
-                            .tint(.purple)
-                    }
-                }
-                
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        showingAddMemoView = true
-                    } label: {
-                        Image(systemName: "plus")
-                    }
+                Button {
+                    showingAddMemoView = true
+                } label: {
+                    Image(systemName: "plus")
                 }
             }
             .sheet(isPresented: $showingAddMemoView) {
-                AddMemoView()
+                AddMemoView(memo: Memo(id: UUID(), description: "")) { memo in
+                    viewModel.updateMemos(with: memo)
+                }
             }
         }
     }

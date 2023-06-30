@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct AddMemoView: View {
-    @State private var memoImage: Image?
-    @State private var memoDescription: String = ""
+    @StateObject private var viewModel: ViewModel
     
     @State private var showingImagePicker = false
-    @State private var inputImage: UIImage?
         
     @Environment(\.dismiss) var dismiss
+    var onSave: (Memo) -> Void // Function used when saving memo.
     
     var body: some View {
         NavigationStack {
@@ -27,7 +26,7 @@ struct AddMemoView: View {
                         .foregroundColor(.secondary)
                         .font(.headline)
                     
-                    memoImage?
+                    viewModel.memoImage?
                         .resizable()
                         .clipShape(RoundedRectangle(cornerRadius: 8))
                         .scaledToFit()
@@ -37,16 +36,20 @@ struct AddMemoView: View {
                 .onTapGesture {
                     showingImagePicker = true
                 }
+                // Accessibility modifiers:
+                .accessibilityElement()
+                .accessibilityLabel("Tap to select a picture")
+                .accessibilityAddTraits(.isButton)
                 
                 Form {
                     Section("Set a description") {
-                        TextField("Happy moment...", text: $memoDescription)
+                        TextField("Happy moment...", text: $viewModel.memoDescription)
                     }
                 }
             }
-            .onChange(of: inputImage) { _ in loadImage() }
+            .onChange(of: viewModel.inputImage) { _ in viewModel.loadImage() }
             .sheet(isPresented: $showingImagePicker) {
-                ImagePicker(image: $inputImage)
+                ImagePicker(image: $viewModel.inputImage)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -57,7 +60,10 @@ struct AddMemoView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {
-                        // TODO: Save memo.
+                        let newMemo = viewModel.createNewMemo()
+                        
+                        onSave(newMemo)
+                        
                         dismiss()
                     }
                 }
@@ -65,15 +71,14 @@ struct AddMemoView: View {
         }
     }
     
-    func loadImage() {
-        guard let inputImage = inputImage else { return }
-        
-        memoImage = Image(uiImage: inputImage)
+    init(memo: Memo, onSave: @escaping (Memo) -> Void) {
+        self.onSave = onSave
+        _viewModel = StateObject(wrappedValue: ViewModel(memo: memo))
     }
 }
 
 struct AddMemoView_Previews: PreviewProvider {
     static var previews: some View {
-        AddMemoView()
+        AddMemoView(memo: Memo.example) { _ in }
     }
 }
