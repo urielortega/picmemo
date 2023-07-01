@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A457DF0B2A50A7C100D6DAB9 /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A457DF0A2A50A7C100D6DAB9 /* LocationFetcher.swift */; };
+		A457DF0D2A50AA0500D6DAB9 /* DetailView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A457DF0C2A50AA0500D6DAB9 /* DetailView-ViewModel.swift */; };
+		A457DF0F2A50B1FF00D6DAB9 /* CLLocationCoordinate2DToCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A457DF0E2A50B1FF00D6DAB9 /* CLLocationCoordinate2DToCoordinate.swift */; };
+		A457DF112A50B24000D6DAB9 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A457DF102A50B24000D6DAB9 /* Coordinate.swift */; };
+		A457DF132A50C40600D6DAB9 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = A457DF122A50C40600D6DAB9 /* Location.swift */; };
 		A4A98C222A4CB2AA00FD8F33 /* PicMemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A98C212A4CB2AA00FD8F33 /* PicMemoApp.swift */; };
 		A4A98C242A4CB2AA00FD8F33 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A98C232A4CB2AA00FD8F33 /* ContentView.swift */; };
 		A4A98C262A4CB2AC00FD8F33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4A98C252A4CB2AC00FD8F33 /* Assets.xcassets */; };
@@ -21,6 +26,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A457DF0A2A50A7C100D6DAB9 /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
+		A457DF0C2A50AA0500D6DAB9 /* DetailView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DetailView-ViewModel.swift"; path = "PicMemo/ViewModel/DetailView-ViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		A457DF0E2A50B1FF00D6DAB9 /* CLLocationCoordinate2DToCoordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DToCoordinate.swift; sourceTree = "<group>"; };
+		A457DF102A50B24000D6DAB9 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		A457DF122A50C40600D6DAB9 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		A4A98C1E2A4CB2AA00FD8F33 /* PicMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A98C212A4CB2AA00FD8F33 /* PicMemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicMemoApp.swift; sourceTree = "<group>"; };
 		A4A98C232A4CB2AA00FD8F33 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,10 +76,12 @@
 			isa = PBXGroup;
 			children = (
 				A4A98C212A4CB2AA00FD8F33 /* PicMemoApp.swift */,
-				A4E09C512A4CDB5500F58554 /* FileManager-DocumentsDirectory.swift */,
 				A4BFD7C42A4E050500F8F1AF /* ViewModel */,
 				A4E09C532A4CE82400F58554 /* View */,
 				A4BFD7C52A4E072A00F8F1AF /* Model */,
+				A4E09C512A4CDB5500F58554 /* FileManager-DocumentsDirectory.swift */,
+				A457DF0E2A50B1FF00D6DAB9 /* CLLocationCoordinate2DToCoordinate.swift */,
+				A457DF0A2A50A7C100D6DAB9 /* LocationFetcher.swift */,
 				A4A98C252A4CB2AC00FD8F33 /* Assets.xcassets */,
 				A4A98C272A4CB2AC00FD8F33 /* Preview Content */,
 			);
@@ -89,6 +101,7 @@
 			children = (
 				A4BFD7C82A4E11D700F8F1AF /* AddMemoView-ViewModel.swift */,
 				A4BFD7C22A4E04FD00F8F1AF /* ContentView-ViewModel.swift */,
+				A457DF0C2A50AA0500D6DAB9 /* DetailView-ViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -97,6 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				A4E09C492A4CBFC400F58554 /* Memo.swift */,
+				A457DF102A50B24000D6DAB9 /* Coordinate.swift */,
+				A457DF122A50C40600D6DAB9 /* Location.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,11 +199,16 @@
 			files = (
 				A4E09C552A4CE83C00F58554 /* AddMemoView.swift in Sources */,
 				A4E09C4A2A4CBFC400F58554 /* Memo.swift in Sources */,
+				A457DF0B2A50A7C100D6DAB9 /* LocationFetcher.swift in Sources */,
 				A4E09C522A4CDB5500F58554 /* FileManager-DocumentsDirectory.swift in Sources */,
+				A457DF0F2A50B1FF00D6DAB9 /* CLLocationCoordinate2DToCoordinate.swift in Sources */,
 				A4BFD7C92A4E11D700F8F1AF /* AddMemoView-ViewModel.swift in Sources */,
+				A457DF132A50C40600D6DAB9 /* Location.swift in Sources */,
 				A4E09C4C2A4CCCCC00F58554 /* DetailView.swift in Sources */,
 				A4E09C4E2A4CD79000F58554 /* ImagePicker.swift in Sources */,
 				A4BFD7C32A4E04FD00F8F1AF /* ContentView-ViewModel.swift in Sources */,
+				A457DF112A50B24000D6DAB9 /* Coordinate.swift in Sources */,
+				A457DF0D2A50AA0500D6DAB9 /* DetailView-ViewModel.swift in Sources */,
 				A4A98C242A4CB2AA00FD8F33 /* ContentView.swift in Sources */,
 				A4A98C222A4CB2AA00FD8F33 /* PicMemoApp.swift in Sources */,
 			);
@@ -322,6 +342,7 @@
 				DEVELOPMENT_TEAM = JK7SXFP9R2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to save it with your memos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -351,6 +372,7 @@
 				DEVELOPMENT_TEAM = JK7SXFP9R2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to save it with your memos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
