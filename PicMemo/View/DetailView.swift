@@ -52,8 +52,8 @@ struct DetailView: View {
                 longitude: memo.location?.longitude ?? Memo.example.location!.longitude
             ),
             span: MKCoordinateSpan(
-                latitudeDelta: 0.2,
-                longitudeDelta: 0.2
+                latitudeDelta: 0.01,
+                longitudeDelta: 0.01
             )
         ))
         

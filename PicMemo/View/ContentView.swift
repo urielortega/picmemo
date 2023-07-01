@@ -11,7 +11,7 @@ struct ContentView: View {
     @StateObject private var viewModel = ViewModel()
 
     @State private var showingAddMemoView = false
-    
+        
     var body: some View {
         NavigationStack {
             List {

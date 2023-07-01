@@ -5,6 +5,7 @@
 //  Created by Uriel Ortega on 29/06/23.
 //
 
+import CoreLocation
 import Foundation
 import SwiftUI
 import UIKit
@@ -18,10 +19,14 @@ extension AddMemoView {
         @Published var inputImage: UIImage?
         @Published var memoImage: Image?
         @Published var memoDescription: String
+        var memoLocation: CLLocationCoordinate2D?
 
         let savePath = FileManager.documentsDirectory.appendingPathComponent("SavedMemos")
+        let locationFetcher = LocationFetcher()
         
         init(memo: Memo) {
+            self.locationFetcher.start()
+
             memoDescription = memo.description
             self.memo = memo
             
@@ -34,12 +39,23 @@ extension AddMemoView {
             }
         }
         
+        func trackLocation() {
+            if let location = self.locationFetcher.lastKnownLocation {
+                print("Your location is \(location)")
+                
+                memoLocation = location
+            } else {
+                print("Your location is unknown")
+            }
+        }
+        
         func createNewMemo() -> Memo {
             var newMemo = memo
             
             newMemo.id = UUID()
             newMemo.imageData = (inputImage?.jpegData(compressionQuality: 0.8))
             newMemo.description = memoDescription
+            newMemo.location = Coordinate(memoLocation ?? CLLocationCoordinate2D(Memo.example.location!))
             
             return newMemo
         }

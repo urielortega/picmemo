@@ -35,6 +35,8 @@ struct AddMemoView: View {
                 .padding()
                 .onTapGesture {
                     showingImagePicker = true
+                    
+                    viewModel.trackLocation()
                 }
                 // Accessibility modifiers:
                 .accessibilityElement()
