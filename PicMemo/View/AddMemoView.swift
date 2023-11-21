@@ -22,9 +22,11 @@ struct AddMemoView: View {
                     RoundedRectangle(cornerRadius: 20)
                         .fill(.ultraThinMaterial)
                     
-                    Text("Tap to select a picture")
-                        .foregroundColor(.secondary)
-                        .font(.headline)
+                    if viewModel.memoImage == nil {
+                        Text("Tap to select a picture")
+                            .foregroundColor(.secondary)
+                            .font(.headline)
+                    }
                     
                     viewModel.memoImage?
                         .resizable()
