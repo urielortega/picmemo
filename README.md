@@ -4,7 +4,7 @@ PicMemo is a SwiftUI app that allows users to capture and save memories with pho
 
 ## Features  
 - **Photo Selection:** Pick images using UIKit’s `PHPickerViewController`.  
-- ✍**Add Descriptions:** Provide a custom description for each photo.  
+- **Add Descriptions:** Provide a custom description for each photo.  
 - **Location Tagging:** Automatically associate the current location with each photo displaying it with MapKit.  
 - **Data Storage:** Store memos securely and efficiently with SwiftUI’s state management.  
 
