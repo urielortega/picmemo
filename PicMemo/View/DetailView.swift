@@ -10,8 +10,6 @@ import SwiftUI
 
 struct DetailView: View {
     let memo: Memo
-        
-    @StateObject private var viewModel = ViewModel()
     
     @State private var mapRegion: MKCoordinateRegion
     

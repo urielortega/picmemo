@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A457DF0B2A50A7C100D6DAB9 /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A457DF0A2A50A7C100D6DAB9 /* LocationFetcher.swift */; };
-		A457DF0D2A50AA0500D6DAB9 /* DetailView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A457DF0C2A50AA0500D6DAB9 /* DetailView-ViewModel.swift */; };
 		A457DF0F2A50B1FF00D6DAB9 /* CLLocationCoordinate2DToCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A457DF0E2A50B1FF00D6DAB9 /* CLLocationCoordinate2DToCoordinate.swift */; };
 		A457DF112A50B24000D6DAB9 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A457DF102A50B24000D6DAB9 /* Coordinate.swift */; };
 		A457DF132A50C40600D6DAB9 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = A457DF122A50C40600D6DAB9 /* Location.swift */; };
@@ -27,7 +26,6 @@
 
 /* Begin PBXFileReference section */
 		A457DF0A2A50A7C100D6DAB9 /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
-		A457DF0C2A50AA0500D6DAB9 /* DetailView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DetailView-ViewModel.swift"; path = "PicMemo/ViewModel/DetailView-ViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		A457DF0E2A50B1FF00D6DAB9 /* CLLocationCoordinate2DToCoordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DToCoordinate.swift; sourceTree = "<group>"; };
 		A457DF102A50B24000D6DAB9 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		A457DF122A50C40600D6DAB9 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 			children = (
 				A4BFD7C82A4E11D700F8F1AF /* AddMemoView-ViewModel.swift */,
 				A4BFD7C22A4E04FD00F8F1AF /* ContentView-ViewModel.swift */,
-				A457DF0C2A50AA0500D6DAB9 /* DetailView-ViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -208,7 +205,6 @@
 				A4E09C4E2A4CD79000F58554 /* ImagePicker.swift in Sources */,
 				A4BFD7C32A4E04FD00F8F1AF /* ContentView-ViewModel.swift in Sources */,
 				A457DF112A50B24000D6DAB9 /* Coordinate.swift in Sources */,
-				A457DF0D2A50AA0500D6DAB9 /* DetailView-ViewModel.swift in Sources */,
 				A4A98C242A4CB2AA00FD8F33 /* ContentView.swift in Sources */,
 				A4A98C222A4CB2AA00FD8F33 /* PicMemoApp.swift in Sources */,
 			);
